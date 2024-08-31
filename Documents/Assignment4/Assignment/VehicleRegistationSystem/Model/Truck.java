@@ -7,8 +7,15 @@ public class Truck extends Vehicle{
         super(brand,model);
         this.payLoadCapacity=pay;
     }
+
+    public Truck(Vehicle vehicle, double pay) {
+        super(vehicle);
+        this.payLoadCapacity= pay;
+    }
+
     @Override
     public void displayInfo(){
+        System.out.println("******Truck********");
         System.out.println("Brand: "+this.getBrand());
         System.out.println("Model: "+this.getModel());
         System.out.println("PayLoadCapacity: "+this.payLoadCapacity+"\n");

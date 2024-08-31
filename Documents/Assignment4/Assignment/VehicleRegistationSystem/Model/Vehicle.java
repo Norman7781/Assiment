@@ -1,6 +1,7 @@
 package Model;
 
-abstract public class Vehicle {
+public class Vehicle {
+    private Vehicle vehicle;
     private String brand;
     private String model;
     private static int vehicleCount;
@@ -9,6 +10,19 @@ abstract public class Vehicle {
         this.brand = brand;
         this.model = model;
         vehicleCount++;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public Vehicle(Vehicle vehicle){
+        vehicle.setModel(this.model);
+        vehicle.setBrand(this.brand);
     }
     public static int getVehicleCount(){
         return vehicleCount;
@@ -19,5 +33,7 @@ abstract public class Vehicle {
     public String getModel(){
         return this.model;
     }
-    abstract public void displayInfo();
+     public void displayInfo(){
+
+     }
 }

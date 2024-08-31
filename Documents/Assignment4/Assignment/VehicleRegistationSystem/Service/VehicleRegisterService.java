@@ -10,58 +10,34 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class VehicleRegisterService {
-    static Vehicle[] vehicles = new Vehicle[100];
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    private static String brand;
-    private static String model;
-    private static String type;
-    private static String flag="";
+    public static Vehicle[] vehicles = new Vehicle[100];
+    public  BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    private Vehicle vehicle;
 
-    public static void main(String[] args) throws IOException {
-        do{
-            getInfo();
-            if(type.equalsIgnoreCase("car")){
-                carDisplay();
-            }
-            if(type.equalsIgnoreCase("truck")){
-                truckDisplay();
-            }
-            if(type.equalsIgnoreCase("motorcycle")){
-                motorcycleDisplay();
-            }
-            System.out.print("Do yo want to add new vehicle: ");
-            flag= br.readLine();
-        }while(flag.equalsIgnoreCase("yes"));
-        display();
+
+    public void create()throws IOException{
+        commonInfo();
+        registerProcess();
     }
+    public void registerProcess()throws IOException{
 
-    public static void display(){
+    }
+    public  void display(){
         for (int i = 0; i <Vehicle.getVehicleCount(); i++) {
             vehicles[i].displayInfo();
         }
     }
 
-    public static void getInfo() throws IOException {
+
+    public  void commonInfo() throws IOException {
         System.out.print("Enter Vehicle Brand: ");
-        brand = br.readLine();
+        String brand = br.readLine();
         System.out.print("Enter Vehicle Model: ");
-        model = br.readLine();
-        System.out.print("Enter type of Vehicle:(Car,Truck,Motorcycle) ");
-        type = br.readLine();
+        String model = br.readLine();
+        this.vehicle= new Vehicle(brand,model);
     }
-    public static void carDisplay() throws IOException {
-        System.out.print("Enter doors: ");
-        int door = Integer.parseInt(br.readLine());
-        vehicles[Vehicle.getVehicleCount()] = new Car(brand,model,door);
+    public Vehicle getVehicle() {
+        return vehicle;
     }
-    public static void truckDisplay() throws IOException {
-        System.out.print("Enter payLoadCapacity: ");
-        double pay = Double.parseDouble(br.readLine());
-        vehicles[Vehicle.getVehicleCount()] = new Truck(brand,model,pay);
-    }
-    public static void motorcycleDisplay() throws IOException {
-        System.out.print("Has a side car:(true,false) ");
-        boolean has = Boolean.parseBoolean(br.readLine());
-        vehicles[Vehicle.getVehicleCount()] = new Motorcycle(brand,model,has);
-    }
+
 }
