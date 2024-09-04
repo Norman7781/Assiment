@@ -1,5 +1,6 @@
 package Service;
 
+import Dao.VehicleDB;
 import Model.Vehicle;
 import Model.Car;
 import Model.Motorcycle;
@@ -11,31 +12,42 @@ import java.io.InputStreamReader;
 
 public class VehicleRegisterService {
     public static Vehicle[] vehicles = new Vehicle[100];
-    public  BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    public BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private Vehicle vehicle;
+    private VehicleDB vehicleDB;
 
+    public VehicleRegisterService() {
+        this.vehicleDB = new VehicleDB();
+    }
 
-    public void create()throws IOException{
+    public void create() throws IOException {
         commonInfo();
         registerProcess();
     }
-    public void registerProcess()throws IOException{
+
+    public void registerProcess() throws IOException {
 
     }
-    public  void display(){
-        for (int i = 0; i <Vehicle.getVehicleCount(); i++) {
-            vehicles[i].displayInfo();
+
+    public void display() {
+        //vehicleDB.getAll();
+        Vehicle[] allVehicles = vehicleDB.getAll();
+        for (Vehicle vehicle : allVehicles) {
+            if (vehicle != null) {
+                vehicle.displayInfo();
+            }
         }
     }
 
 
-    public  void commonInfo() throws IOException {
+    public void commonInfo() throws IOException {
         System.out.print("Enter Vehicle Brand: ");
         String brand = br.readLine();
         System.out.print("Enter Vehicle Model: ");
         String model = br.readLine();
-        this.vehicle= new Vehicle(brand,model);
+        this.vehicle = new Vehicle(brand, model);
     }
+
     public Vehicle getVehicle() {
         return vehicle;
     }
