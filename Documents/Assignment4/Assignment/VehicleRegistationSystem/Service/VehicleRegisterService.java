@@ -10,8 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class VehicleRegisterService {
-    public static Vehicle[] vehicles = new Vehicle[100];
+public abstract class VehicleRegisterService {
     public BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private Vehicle vehicle;
     private VehicleDB vehicleDB;
@@ -25,9 +24,7 @@ public class VehicleRegisterService {
         registerProcess();
     }
 
-    public void registerProcess() throws IOException {
-
-    }
+    public abstract void registerProcess() throws IOException;
 
     public void display() {
         //vehicleDB.getAll();

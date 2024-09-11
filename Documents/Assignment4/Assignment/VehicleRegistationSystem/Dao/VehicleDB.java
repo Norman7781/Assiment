@@ -4,6 +4,15 @@ import Model.Vehicle;
 
 public class VehicleDB {
     public static Vehicle[] vehicleDB = new Vehicle[Vehicle.Max_Vehicle_count];
+    public static Vehicle[] vehicles = new Vehicle[100];
+
+    public static Vehicle[] getVehicles() {
+        return vehicles;
+    }
+
+    public static void setVehicles(Vehicle[] vehicles) {
+        VehicleDB.vehicles = vehicles;
+    }
 
     public void create(Vehicle vehicle) {
         vehicleDB[Vehicle.getVehicleCount() - 1] = vehicle;

@@ -5,6 +5,7 @@ public class Vehicle {
     private Vehicle vehicle;
     private String brand;
     private String model;
+    private double rentalPrice;
     private static int vehicleCount;
     private static int id;
 
@@ -50,5 +51,9 @@ public class Vehicle {
 
     public void displayInfo() {
 
+    }
+
+    public double getRentalPrice() {
+        return rentalPrice;
     }
 }
