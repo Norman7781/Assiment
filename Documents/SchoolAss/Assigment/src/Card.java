@@ -1,3 +1,8 @@
+/*
+Aung Kaung Myat;
+6611201
+541
+ */
 public class Card {
     private String suit;
     private String rank;

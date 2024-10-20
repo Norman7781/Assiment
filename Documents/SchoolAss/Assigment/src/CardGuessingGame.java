@@ -1,3 +1,8 @@
+/*
+Aung Kaung Myat
+6611201
+541
+ */
 import java.util.Random;
 import java.util.Scanner;
 
